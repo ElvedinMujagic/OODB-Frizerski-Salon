@@ -25,7 +25,7 @@
 
             <!-- Desktop: main nav + auth group (auth group flex-shrink-0 so Login/Register always visible) -->
             <nav class="hidden lg:flex items-center flex-1 min-w-0 justify-end xl:justify-center xl:gap-8 gap-4">
-                <a href="{{ route('home') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Homes</a>
+                <a href="{{ route('home') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Home</a>
                 <a href="{{ route('services') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Services</a>
                 <a href="{{ route('our-work') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Our Work</a>
                 <a href="{{ route('about') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">About</a>
