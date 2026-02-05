@@ -25,12 +25,12 @@
 
             <!-- Desktop: main nav + auth group (auth group flex-shrink-0 so Login/Register always visible) -->
             <nav class="hidden lg:flex items-center flex-1 min-w-0 justify-end xl:justify-center xl:gap-8 gap-4">
-                <a href="{{ route('home') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Home</a>
-                <a href="{{ route('services') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Services</a>
-                <a href="{{ route('our-work') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Our Work</a>
-                <a href="{{ route('about') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">About</a>
-                <a href="{{ route('contact') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Contact</a>
-                <a href="{{ route('book') }}" class="text-white px-4 py-2 rounded-md bg-pink-500/90 hover:bg-pink-500 transition font-medium whitespace-nowrap">Book Appointment</a>
+                <a href="{{ route('home') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Početna</a>
+                <a href="{{ route('services') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Naše usluge</a>
+                <a href="{{ route('our-work') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Naš rad</a>
+                <a href="{{ route('about') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">O nama</a>
+                <a href="{{ route('contact') }}" class="text-white hover:text-pink-300 transition font-medium whitespace-nowrap">Kontakt</a>
+                <a href="{{ route('book') }}" class="text-white px-4 py-2 rounded-md bg-pink-500/90 hover:bg-pink-500 transition font-medium whitespace-nowrap">Zakaži termin</a>
             </nav>
 
             <!-- Auth: always on the right, never shrinks -->
@@ -39,9 +39,9 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-white px-4 py-2 border border-white/40 rounded-md hover:bg-white/10 transition font-medium">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-white hover:text-pink-300 transition font-medium">Log in</a>
+                        <a href="{{ route('login') }}" class="text-white hover:text-pink-300 transition font-medium">Prijavi se</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-white px-4 py-2 bg-pink-500 rounded-md hover:bg-pink-600 transition font-medium">Register</a>
+                            <a href="{{ route('register') }}" class="text-white px-4 py-2 bg-pink-500 rounded-md hover:bg-pink-600 transition font-medium">Registruj se</a>
                         @endif
                     @endauth
                 @endif
@@ -53,9 +53,9 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-white text-sm font-medium px-3 py-1.5">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-white text-sm font-medium">Log in</a>
+                        <a href="{{ route('login') }}" class="text-white text-sm font-medium">Prijavi se</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-white text-sm font-medium px-3 py-1.5 bg-pink-500 rounded">Register</a>
+                            <a href="{{ route('register') }}" class="text-white text-sm font-medium px-3 py-1.5 bg-pink-500 rounded">Registruj se</a>
                         @endif
                     @endauth
                 @endif
@@ -69,12 +69,12 @@
     <input type="checkbox" id="mobile-menu" class="peer hidden">
     <div class="hidden peer-checked:block lg:hidden bg-gray-800 border-t border-white/10">
         <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-2 text-white">
-            <a href="{{ route('home') }}" class="py-2 hover:text-pink-300">Home</a>
-            <a href="{{ route('services') }}" class="py-2 hover:text-pink-300">Services</a>
-            <a href="{{ route('our-work') }}" class="py-2 hover:text-pink-300">Our Work</a>
-            <a href="{{ route('about') }}" class="py-2 hover:text-pink-300">About</a>
-            <a href="{{ route('contact') }}" class="py-2 hover:text-pink-300">Contact</a>
-            <a href="{{ route('book') }}" class="py-2 text-pink-400 font-medium">Book Appointment</a>
+            <a href="{{ route('home') }}" class="py-2 hover:text-pink-300">Početna</a>
+            <a href="{{ route('services') }}" class="py-2 hover:text-pink-300">Usluge</a>
+            <a href="{{ route('our-work') }}" class="py-2 hover:text-pink-300">Naš rad</a>
+            <a href="{{ route('about') }}" class="py-2 hover:text-pink-300">O nama</a>
+            <a href="{{ route('contact') }}" class="py-2 hover:text-pink-300">Kontakt</a>
+            <a href="{{ route('book') }}" class="py-2 text-pink-400 font-medium">Zakaži termin</a>
         </nav>
     </div>
 </header>
@@ -89,19 +89,19 @@
         <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2">
                 <a href="{{ route('home') }}" class="text-2xl font-display font-bold text-white">Velvet<span class="text-pink-400">.</span></a>
-                <p class="mt-3 text-sm max-w-sm">Premium hair cuts, color and styling in a welcoming, professional environment.</p>
+                <p class="mt-3 text-sm max-w-sm">Vrhunsko šišanje, farbanje i stiliziranje kose u ugodnom i profesionalnom okruženju.</p>
             </div>
             <div>
-                <h4 class="font-semibold text-white mb-3">Quick links</h4>
+                <h4 class="font-semibold text-white mb-3">Linkovi</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="{{ route('services') }}" class="hover:text-pink-400 transition">Services</a></li>
-                    <li><a href="{{ route('our-work') }}" class="hover:text-pink-400 transition">Our Work</a></li>
-                    <li><a href="{{ route('about') }}" class="hover:text-pink-400 transition">About</a></li>
-                    <li><a href="{{ route('contact') }}" class="hover:text-pink-400 transition">Contact</a></li>
+                    <li><a href="{{ route('services') }}" class="hover:text-pink-400 transition">Naše usluge</a></li>
+                    <li><a href="{{ route('our-work') }}" class="hover:text-pink-400 transition">Naš rad</a></li>
+                    <li><a href="{{ route('about') }}" class="hover:text-pink-400 transition">O nama</a></li>
+                    <li><a href="{{ route('contact') }}" class="hover:text-pink-400 transition">Kontakt</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-semibold text-white mb-3">Connect</h4>
+                <h4 class="font-semibold text-white mb-3">Pratite nas</h4>
                 <div class="flex gap-4">
                     <a href="#" class="text-gray-400 hover:text-pink-400 transition" aria-label="Facebook">Facebook</a>
                     <a href="#" class="text-gray-400 hover:text-pink-400 transition" aria-label="Instagram">Instagram</a>

@@ -4,15 +4,15 @@
 
 @section('content')
 <section class="pt-24 md:pt-12 pb-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         <!-- Heading -->
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6">
-            Our Work
+        <h1 class="font-display text-5xl md:text-5xl font-bold text-center text-gray-900 mt-10">
+            Naš rad
         </h1>
 
         <!-- Subheading -->
         <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-            A selection of the looks we’ve created for our clients. Follow us on social media for more.
+            Izbor izgleda koje smo kreirali za naše klijente. Pratite nas na društvenim mrežama za više informacija.
         </p>
 
         <!-- Gallery Grid -->
@@ -27,7 +27,7 @@
 
         <!-- Call to Action -->
         <p class="text-center mt-12 text-gray-600">
-            <a href="{{ route('contact') }}" class="text-pink-600 font-semibold hover:text-pink-700">Get in touch</a> to discuss your next look.
+            <a href="{{ route('contact') }}" class="text-pink-600 font-semibold hover:text-pink-700">Javite se</a> da razgovaramo o vašem sljedećem izgledu.
         </p>
     </div>
 </section>
