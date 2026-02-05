@@ -109,7 +109,7 @@
             </div>
         </div>
         <div class="border-t border-gray-800 pt-8 text-sm text-center">
-            © {{ date('Y') }} Velvet Hair Studio. All rights reserved.
+            © {{ date('Y') }} Frizerski salon Velvet. All rights reserved.
         </div>
     </div>
 </footer>

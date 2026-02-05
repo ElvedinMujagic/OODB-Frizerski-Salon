@@ -38,7 +38,7 @@ class ServiceController extends Controller
         ]);
 
         Service::create($validated);
-        return redirect()->route('admin.services.index')->with('status', 'Service created.');
+        return redirect()->route('admin.services.index')->with('status', 'Usluga je uspješno kreirana.');
     }
 
     public function edit(Service $service): View
@@ -55,12 +55,12 @@ class ServiceController extends Controller
         ]);
 
         $service->update($validated);
-        return redirect()->route('admin.services.index')->with('status', 'Service updated.');
+        return redirect()->route('admin.services.index')->with('status', 'Usluga je uspješno ažurirana.');
     }
 
     public function destroy(Service $service): RedirectResponse
     {
         $service->delete();
-        return redirect()->route('admin.services.index')->with('status', 'Service deleted.');
+        return redirect()->route('admin.services.index')->with('status', 'Usluga je uspješno obrisana.');
     }
 }

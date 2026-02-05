@@ -24,7 +24,7 @@ class AppointmentController extends Controller
             'appointment_at' => ['required','date','after:now',
                 function ($attribute, $value, $fail) {
                     $time = Carbon::parse($value);
-                    if ($time->hour < 8 || $time->hour >= 16) {$fail('Appointments are only available between 08:00 and 16:00.');}
+                    if ($time->hour < 8 || $time->hour >= 16) {$fail('Termini su dostupni samo od 08:00 do 16:00.');}
                 }],
             'notes' => ['nullable', 'string', 'max:1000'],
         ]);
@@ -39,7 +39,7 @@ class AppointmentController extends Controller
             'status' => Appointment::STATUS_PENDING,
         ]);
 
-        return redirect()->route('client.dashboard')->with('status', 'Appointment requested. The stylist will confirm or reject it.');
+        return redirect()->route('client.dashboard')->with('status', 'Rezervacija je kreirana i čeka potvrdu frizera.');
     }
 
     /**

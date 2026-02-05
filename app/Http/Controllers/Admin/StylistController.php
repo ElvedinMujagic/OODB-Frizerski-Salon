@@ -58,12 +58,12 @@ class StylistController extends Controller
             'role' => User::ROLE_STYLIST,
         ]);
 
-        return redirect()->route('admin.dashboard')->with('status', 'Stylist succesfully inserted in the database');
+        return redirect()->route('admin.dashboard')->with('status', 'Frizer je uspješno kreiran!');
     }
 
     public function destroy(int $id): RedirectResponse
     {
         User::findOrFail($id)->delete();
-        return redirect()->route('admin.stylists.delete')->with('status', 'Stylist successfully deleted!');
+        return redirect()->route('admin.stylists.delete')->with('status', 'Frizer je uspješno obrisan!');
     }
 }

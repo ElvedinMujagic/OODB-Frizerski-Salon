@@ -18,7 +18,7 @@ class EnsureUserHasRole
         }
 
         if (! in_array($request->user()->role, $roles, true)) {
-            abort(403, 'You do not have access to this area.');
+            abort(403, 'Nemate dozvolu za pristup ovoj stranici.');
         }
 
         return $next($request);

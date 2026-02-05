@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('My Appointments') }}
+            {{ __('Moji termini') }}
         </h2>
     </x-slot>
 
@@ -15,16 +15,16 @@
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100">
                 <div class="p-6 lg:p-8">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Appointments assigned to you</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Termini dodijeljeni vama</h3>
                     @if($appointments->isEmpty())
-                        <p class="text-gray-500">You have no appointments yet.</p>
+                        <p class="text-gray-500">Nemate zakazanih termina.</p>
                     @else
                         <ul class="divide-y divide-gray-200">
                             @foreach($appointments as $apt)
                                 <li class="py-4 first:pt-0 last:pb-0">
                                     <div class="flex flex-wrap items-start justify-between gap-4">
                                         <div>
-                                            <p class="font-medium text-gray-900">{{ $apt->client->name }}</p>
+                                            <p class="font-medium text-gray-900">{{ $apt->client->name }} {{ $apt->client->lastname }}</p>
                                             <p class="text-sm text-gray-500">{{ $apt->appointment_at->format('l, M j, Y \a\t g:i A') }}</p>
                                             @if($apt->service)
                                                 <p class="text-sm text-gray-600 mt-1">{{ $apt->service->name }} — {{ number_format($apt->service->price, 2) }}</p>
@@ -47,7 +47,7 @@
                                                     @method('PUT')
                                                     <input type="hidden" name="status" value="accepted">
                                                     <button type="submit" class="px-3 py-1.5 bg-green-500 text-white text-sm font-medium rounded-md hover:bg-green-600 transition">
-                                                        Accept
+                                                        Prihvati
                                                     </button>
                                                 </form>
                                                 <form action="{{ route('appointments.update', $apt) }}" method="POST" class="inline">
@@ -55,7 +55,7 @@
                                                     @method('PUT')
                                                     <input type="hidden" name="status" value="rejected">
                                                     <button type="submit" class="px-3 py-1.5 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition">
-                                                        Reject
+                                                        Odbij
                                                     </button>
                                                 </form>
                                             </div>

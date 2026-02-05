@@ -2,17 +2,17 @@
     <x-slot name="header">
         <div class="flex flex-wrap items-center justify-between gap-1">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Admin – All Appointments') }}
+                {{ __('Admin – Svi Termini') }}
             </h2>
             <div class="flex flex-wrap items-center gap-2">
                 <a href="{{ route('admin.services.index') }}" class="px-3 py-2 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-800 transition text-sm">
-                    Manage services
+                    Upravljanje uslugama
                 </a>
                 <a href="{{ route('admin.stylists.create') }}" class="px-3 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
-                    Create stylist account
+                    Napravi profil frizera
                 </a>
                 <a href="{{ route('admin.stylists.delete') }}" class="px-3 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
-                    Delete stylist account
+                    Obriši profil frizera
                 </a>
             </div>
         </div>
@@ -28,18 +28,18 @@
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100">
                 <div class="p-6 lg:p-8">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">All appointments (accepted and rejected)</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Svi termini (prihvaćeni i odbijeni)</h3>
                     @if($appointments->isEmpty())
-                        <p class="text-gray-500">No appointments in the system yet.</p>
+                        <p class="text-gray-500">Nema termina u sistemu.</p>
                     @else
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Client</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Stylist</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Service</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Date & time</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Klijent</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Frizer</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Usluga</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Datum i vrijeme</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                                     </tr>
                                 </thead>

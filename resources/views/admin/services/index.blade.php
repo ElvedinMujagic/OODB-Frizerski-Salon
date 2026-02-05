@@ -4,11 +4,11 @@
             <div class="flex items-center gap-2">
                 <a href="{{ route('admin.dashboard') }}" class="text-gray-500 hover:text-gray-700 text-sm">← Admin</a>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Manage services') }}
+                    {{ __('Upravljanje uslugama') }}
                 </h2>
             </div>
             <a href="{{ route('admin.services.create') }}" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
-                Create service
+                Napravi novu uslugu
             </a>
         </div>
     </x-slot>
@@ -24,8 +24,8 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100">
                 <div class="p-6 lg:p-8">
                     @if($services->isEmpty())
-                        <p class="text-gray-500 mb-4">No services yet. Create one to get started.</p>
-                        <a href="{{ route('admin.services.create') }}" class="inline-block px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Create service</a>
+                        <p class="text-gray-500 mb-4">Nema usluga. Napravite jednu da biste započeli.</p>
+                        <a href="{{ route('admin.services.create') }}" class="inline-block px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Napravi novu uslugu</a>
                     @else
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
@@ -44,11 +44,11 @@
                                             <td class="px-4 py-3 text-sm text-gray-600">{{ number_format($service->price, 2) }}</td>
                                             <td class="px-4 py-3 text-sm text-gray-600">{{ $service->formatted_avg_time }}</td>
                                             <td class="px-4 py-3 text-right">
-                                                <a href="{{ route('admin.services.edit', $service) }}" class="text-pink-600 hover:text-pink-700 font-medium text-sm">Edit</a>
-                                                <form action="{{ route('admin.services.destroy', $service) }}" method="POST" class="inline ml-3" onsubmit="return confirm('Delete this service?');">
+                                                <a href="{{ route('admin.services.edit', $service) }}" class="text-pink-600 hover:text-pink-700 font-medium text-sm">Uredi</a>
+                                                <form action="{{ route('admin.services.destroy', $service) }}" method="POST" class="inline ml-3" onsubmit="return confirm('Obriši ovu uslugu?');">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="text-red-600 hover:text-red-700 font-medium text-sm">Delete</button>
+                                                    <button type="submit" class="text-red-600 hover:text-red-700 font-medium text-sm">Obriši</button>
                                                 </form>
                                             </td>
                                         </tr>
