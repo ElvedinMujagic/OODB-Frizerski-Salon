@@ -1,0 +1,64 @@
+<x-app-layout>
+    <x-slot name="header">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <a href="{{ route('admin.dashboard') }}" class="text-gray-500 hover:text-gray-700 text-sm">← Admin</a>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Manage services') }}
+                </h2>
+            </div>
+            <a href="{{ route('admin.services.create') }}" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
+                Create service
+            </a>
+        </div>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (session('status'))
+                <div class="rounded-lg bg-green-50 border border-green-200 text-green-800 px-4 py-3 mb-6">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100">
+                <div class="p-6 lg:p-8">
+                    @if($services->isEmpty())
+                        <p class="text-gray-500 mb-4">No services yet. Create one to get started.</p>
+                        <a href="{{ route('admin.services.create') }}" class="inline-block px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Create service</a>
+                    @else
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Avg. time</th>
+                                        <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    @foreach($services as $service)
+                                        <tr>
+                                            <td class="px-4 py-3 text-sm font-medium text-gray-900">{{ $service->name }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-600">{{ number_format($service->price, 2) }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-600">{{ $service->formatted_avg_time }}</td>
+                                            <td class="px-4 py-3 text-right">
+                                                <a href="{{ route('admin.services.edit', $service) }}" class="text-pink-600 hover:text-pink-700 font-medium text-sm">Edit</a>
+                                                <form action="{{ route('admin.services.destroy', $service) }}" method="POST" class="inline ml-3" onsubmit="return confirm('Delete this service?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-red-600 hover:text-red-700 font-medium text-sm">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
