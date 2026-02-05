@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('client_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('stylist_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('service_id')->constrained('services')->cascadeOnDelete();
             $table->dateTime('appointment_at');
             $table->string('status')->default('pending'); // pending, accepted, rejected
             $table->text('notes')->nullable();

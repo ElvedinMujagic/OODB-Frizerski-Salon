@@ -62,7 +62,7 @@
                             </div>
                             <div>
                                 <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Napomena</label>
-                                <textarea name="notes" id="notes" rows="2" class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" placeholder="Any special requests?">{{ old('notes') }}</textarea>
+                                <textarea name="notes" id="notes" rows="2" class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" placeholder="Napomene">{{ old('notes') }}</textarea>
                                 @error('notes')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
