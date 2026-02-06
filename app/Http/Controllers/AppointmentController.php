@@ -56,8 +56,8 @@ class AppointmentController extends Controller
         $appointment->update(['status' => $validated['status']]);
 
         $message = $validated['status'] === Appointment::STATUS_ACCEPTED
-            ? 'Appointment accepted.'
-            : 'Appointment rejected.';
+            ? 'Termin je prihvaćen.'
+            : 'Termin je odbijen.';
 
         return redirect()->route('stylist.dashboard')->with('status', $message);
     }
