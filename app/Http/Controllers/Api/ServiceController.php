@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
@@ -16,12 +16,11 @@ class ServiceController extends Controller
 
             $services = Service::orderBy('name')->get();
             if ($services->isEmpty()) {
-                return response()->json(['message' => 'No services found.',], 200);
+                return response()->json(['message' => 'Nema usluga .',], 200);
             }
-
-            return response()->json(['message' => 'Services fetched successfully.', 'data' => $services], 200);
+            return response()->json(['message' => 'Usluge uspješno dohvaćene.', 'data' => $services], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'An error occurred while fetching services.', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Došlo je do greške tokom ispisu usluga.', 'error' => $e->getMessage()], 500);
         }
     }
 
@@ -43,9 +42,9 @@ class ServiceController extends Controller
         
         try {
             $service = Service::create($validated);
-            return response()->json(['message' => 'Service created successfully.', 'data' => $service], 201);
+            return response()->json(['message' => 'Usluga uspješno stvorena.', 'data' => $service], 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'An error occurred while creating the service.', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Desila se greška prilikom stvaranja usluge.', 'error' => $e->getMessage()], 500);
         }
     }
 
@@ -67,9 +66,9 @@ class ServiceController extends Controller
 
         try {
             $service->update($validated);
-        return response()->json(['message' => 'Service updated successfully.','data' => $service],200);
+        return response()->json(['message' => 'Usluga uspješno ažurirana.','data' => $service],200);
         } catch(\Exception $e) {
-            return response()->json(['message' => 'An error occured while creating the service','error' => $e->getMessage()],500);
+            return response()->json(['message' => 'Došlo je do greške tokom ažuriranja usluge','error' => $e->getMessage()],500);
         }
     }
 
@@ -77,9 +76,9 @@ class ServiceController extends Controller
     {
         try {
             $service->delete();
-            return response()->json(['message' => 'Service deleted successfully.'], 200);
+            return response()->json(['message' => 'Usluga uspješno obrisana.'], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'An error occurred while deleting the service.', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Došlo je do greške tokom brisanja usluge.', 'error' => $e->getMessage()], 500);
         }
     }
 }
