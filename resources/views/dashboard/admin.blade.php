@@ -1,9 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex flex-wrap items-center justify-between gap-1">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Admin – Svi Termini') }}
-            </h2>
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center gap-1">
+                    ← {{ __('Home') }}
+                </a>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Admin – Svi Termini') }}
+                </h2>
+            </div>
             <div class="flex flex-wrap items-center gap-2">
                 <a href="{{ route('admin.services.index') }}" class="px-3 py-2 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-800 transition text-sm">
                     Upravljanje uslugama
@@ -25,6 +30,46 @@
                     {{ session('status') }}
                 </div>
             @endif
+
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100 mb-6">
+                <div class="p-6 lg:p-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Prikaži termine</h3>
+                    <form action="{{ route('admin.dashboard') }}" method="GET" class="flex flex-wrap items-end gap-4">
+                        <div>
+                            <label for="filter" class="block text-sm font-medium text-gray-700 mb-1">Filter</label>
+                            <select name="filter" id="filter" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                                <option value="all" {{ ($filter ?? 'all') === 'all' ? 'selected' : '' }}>Svi termini</option>
+                                <option value="day" {{ ($filter ?? '') === 'day' ? 'selected' : '' }}>Po danu</option>
+                                <option value="month" {{ ($filter ?? '') === 'month' ? 'selected' : '' }}>Po mjesecu</option>
+                                <option value="year" {{ ($filter ?? '') === 'year' ? 'selected' : '' }}>Po godini</option>
+                            </select>
+                        </div>
+                        <div id="filter-day" class="filter-option" style="{{ ($filter ?? '') === 'day' ? '' : 'display: none;' }}">
+                            <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Datum</label>
+                            <input type="date" name="date" id="date" value="{{ $date ?? '' }}" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                        </div>
+                        <div id="filter-month" class="filter-option flex gap-2" style="{{ ($filter ?? '') === 'month' ? '' : 'display: none;' }}">
+                            <div>
+                                <label for="month" class="block text-sm font-medium text-gray-700 mb-1">Mjesec</label>
+                                <select name="month" id="month" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                                    @foreach(range(1, 12) as $m)
+                                        <option value="{{ $m }}" {{ (int)($month ?? 0) === $m ? 'selected' : '' }}>{{ \Carbon\Carbon::createFromDate(null, $m, 1)->translatedFormat('F') }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
+                                <label for="year_month" class="block text-sm font-medium text-gray-700 mb-1">Godina</label>
+                                <input type="number" name="year_month" id="year_month" value="{{ $year ?? now()->year }}" min="2020" max="2030" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500 w-24">
+                            </div>
+                        </div>
+                        <div id="filter-year" class="filter-option" style="{{ ($filter ?? '') === 'year' ? '' : 'display: none;' }}">
+                            <label for="year_only" class="block text-sm font-medium text-gray-700 mb-1">Godina</label>
+                            <input type="number" name="year_only" id="year_only" value="{{ $year ?? now()->year }}" min="2020" max="2030" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500 w-24">
+                        </div>
+                        <button type="submit" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Prikaži</button>
+                    </form>
+                </div>
+            </div>
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100">
                 <div class="p-6 lg:p-8">
@@ -60,9 +105,10 @@
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
                                                     @if($apt->status === 'accepted') bg-green-100 text-green-800
                                                     @elseif($apt->status === 'rejected') bg-red-100 text-red-800
+                                                    @elseif($apt->status === 'cancelled') bg-gray-100 text-gray-700
                                                     @else bg-amber-100 text-amber-800
                                                     @endif">
-                                                    {{ ucfirst($apt->status) }}
+                                                    {{ $apt->status_label }}
                                                 </span>
                                             </td>
                                         </tr>
@@ -75,4 +121,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('filter').addEventListener('change', function() {
+            var v = this.value;
+            document.getElementById('filter-day').style.display = v === 'day' ? '' : 'none';
+            document.getElementById('filter-month').style.display = v === 'month' ? '' : 'none';
+            document.getElementById('filter-year').style.display = v === 'year' ? '' : 'none';
+        });
+    </script>
 </x-app-layout>
