@@ -25,7 +25,7 @@
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Prezime</label>
                             <input type="text" name="lastname" id="lastname" value="{{ old('lastname') }}" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
-                            @error('name')
+                            @error('lastname')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
@@ -46,6 +46,20 @@
                         <div>
                             <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Potvrdi lozinku</label>
                             <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="start_time" class="block text-sm font-medium text-gray-700 mb-1">Početak radnog vremena</label>
+                            <input type="time" name="start_time" id="start_time" value="{{ old('start_time', '08:00') }}" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            @error('start_time')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="end_time" class="block text-sm font-medium text-gray-700 mb-1">Kraj radnog vremena</label>
+                            <input type="time" name="end_time" id="end_time" value="{{ old('end_time', '16:00') }}" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            @error('end_time')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="flex gap-3 pt-2">
                             <button type="submit" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">
