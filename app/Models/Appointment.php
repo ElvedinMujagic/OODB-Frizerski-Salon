@@ -13,6 +13,7 @@ class Appointment extends Model
     public const STATUS_PENDING = 'pending';
     public const STATUS_ACCEPTED = 'accepted';
     public const STATUS_REJECTED = 'rejected';
+    public const STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [
         'client_id',
@@ -58,5 +59,32 @@ class Appointment extends Model
     public function isRejected(): bool
     {
         return $this->status === self::STATUS_REJECTED;
+    }
+
+    public function isCancelled(): bool
+    {
+        return $this->status === self::STATUS_CANCELLED;
+    }
+
+    /** True if the client can cancel (pending or accepted). */
+    public function canBeCancelledByClient(): bool
+    {
+        return in_array($this->status, [self::STATUS_PENDING, self::STATUS_ACCEPTED], true);
+    }
+
+    /** Human-readable status labels (Bosnian). */
+    public static function statusLabels(): array
+    {
+        return [
+            self::STATUS_PENDING => 'Na čekanju',
+            self::STATUS_ACCEPTED => 'Prihvaćeno',
+            self::STATUS_REJECTED => 'Odbijeno',
+            self::STATUS_CANCELLED => 'Otkazano',
+        ];
+    }
+
+    public function getStatusLabelAttribute(): string
+    {
+        return self::statusLabels()[$this->status] ?? $this->status;
     }
 }
