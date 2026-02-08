@@ -14,4 +14,12 @@ class AppointmentPolicy
     {
         return $user->id === $appointment->stylist_id && $appointment->isPending();
     }
+
+    /**
+     * Only the client can cancel their own appointment (if pending or accepted).
+     */
+    public function cancel(User $user, Appointment $appointment): bool
+    {
+        return $user->id === $appointment->client_id && $appointment->canBeCancelledByClient();
+    }
 }
