@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Moji termini') }}
-        </h2>
+        <div class="flex flex-wrap items-center gap-3">
+            <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center gap-1">
+                ← {{ __('Home') }}
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Moji termini') }}
+            </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -27,9 +32,14 @@
                                 <select name="stylist_id" id="stylist_id" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
                                     <option value="">Odaberite frizera</option>
                                     @foreach($stylists as $s)
-                                        <option value="{{ $s->id }}" {{ old('stylist_id') == $s->id ? 'selected' : '' }}>{{ $s->name }} {{ $s->lastname }}</option>
+                                        @php
+                                            $wh = $s->workHours;
+                                            $hoursHint = $wh ? \Carbon\Carbon::parse($wh->start_time)->format('H:i') . '–' . \Carbon\Carbon::parse($wh->end_time)->format('H:i') : __('Nema radnog vremena');
+                                        @endphp
+                                        <option value="{{ $s->id }}" {{ old('stylist_id') == $s->id ? 'selected' : '' }}>{{ $s->name }} {{ $s->lastname }} ({{ $hoursHint }})</option>
                                     @endforeach
                                 </select>
+                                <p class="mt-1 text-xs text-gray-500">Termin mora biti unutar radnog vremena odabranog frizera.</p>
                                 @error('stylist_id')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -53,8 +63,8 @@
                             <div>
                                 <label for="appointment_at" class="block text-sm font-medium text-gray-700 mb-1">Datum i vrijeme</label>
                                 <input required type="datetime-local" name="appointment_at" id="appointment_at" value="{{ old('appointment_at') }}" 
-                                    min="{{ now()->addDay()->setTime(8, 0)->format('Y-m-d\TH:i') }}"
-                                    max="{{ now()->addDay(30)->setTime(16, 0)->format('Y-m-d\TH:i') }}"
+                                    min="{{ now()->format('Y-m-d\TH:i') }}"
+                                    max="{{ now()->addDays(60)->format('Y-m-d\TH:i') }}"
                                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
                                 @error('appointment_at')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -94,13 +104,22 @@
                                             <p class="text-sm text-gray-600 mt-1">{{ $apt->notes }}</p>
                                         @endif
                                     </div>
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
-                                        @if($apt->status === 'accepted') bg-green-100 text-green-800
-                                        @elseif($apt->status === 'rejected') bg-red-100 text-red-800
-                                        @else bg-amber-100 text-amber-800
-                                        @endif">
-                                        {{ ucfirst($apt->status) }}
-                                    </span>
+                                    <div class="flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                                            @if($apt->status === 'accepted') bg-green-100 text-green-800
+                                            @elseif($apt->status === 'rejected') bg-red-100 text-red-800
+                                            @elseif($apt->status === 'cancelled') bg-gray-100 text-gray-700
+                                            @else bg-amber-100 text-amber-800
+                                            @endif">
+                                            {{ $apt->status_label }}
+                                        </span>
+                                        @if($apt->canBeCancelledByClient())
+                                            <form action="{{ route('appointments.cancel', $apt) }}" method="POST" class="inline" onsubmit="return confirm('Jeste li sigurni da želite otkazati ovaj termin?');">
+                                                @csrf
+                                                <button type="submit" class="px-2 py-1 text-xs font-medium text-red-600 hover:text-red-800 hover:underline">Otkazi</button>
+                                            </form>
+                                        @endif
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
