@@ -52,6 +52,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         ->name('appointments.store')
         ->middleware('role:client');
 
+    Route::post('/appointments/{appointment}/cancel', [AppointmentController::class, 'cancel'])
+        ->name('appointments.cancel')
+        ->middleware('role:client');
+
     Route::put('/appointments/{appointment}', [AppointmentController::class, 'update'])
         ->name('appointments.update')
         ->middleware('role:stylist');
@@ -60,6 +64,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/stylists/create', [StylistController::class, 'create'])->name('stylists.create');
         Route::get('/stylists/delete', [StylistController::class, 'delete'])->name('stylists.delete');
         Route::post('/stylists/store', [StylistController::class, 'store'])->name('stylists.store');
+        Route::get('/stylists/edit/{id}', [StylistController::class, 'edit'])->name('stylists.edit');
+        Route::put('/stylists/update/{id}', [StylistController::class, 'update'])->name('stylists.update');
         Route::post('/stylists/destroy/{id}', [StylistController::class, 'destroy'])->name('stylists.destroy');
 
         Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
