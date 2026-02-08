@@ -21,14 +21,30 @@ class AppointmentController extends Controller
                 User::where('role', User::ROLE_STYLIST)->pluck('id')
             )],
             'service_id' => ['required', 'exists:services,id'],
-            'appointment_at' => ['required','date','after:now',
-                function ($attribute, $value, $fail) {
-                    $time = Carbon::parse($value);
-                    if ($time->hour < 8 || $time->hour >= 16) {$fail('Termini su dostupni samo od 08:00 do 16:00.');}
-                }],
+            'appointment_at' => [
+                'required',
+                'date',
+                'after:now',
+                function ($attribute, $value, $fail) use ($request) {
+                    $stylist = User::with('workHours')->find($request->input('stylist_id'));
+                    if (! $stylist) {
+                        return;
+                    }
+                    $workHours = $stylist->workHours;
+                    if (! $workHours) {
+                        $fail('Ovaj frizer nema postavljeno radno vrijeme. Molimo odaberite drugog frizera ili kontaktirajte administratora.');
+                        return;
+                    }
+                    $appointmentTime = Carbon::parse($value);
+                    if (! $workHours->containsTime($appointmentTime)) {
+                        $start = Carbon::parse($workHours->start_time)->format('H:i');
+                        $end = Carbon::parse($workHours->end_time)->format('H:i');
+                        $fail("Odabrano vrijeme nije u radnom vremenu frizera. Radno vrijeme ovog frizera je od {$start} do {$end}.");
+                    }
+                },
+            ],
             'notes' => ['nullable', 'string', 'max:1000'],
         ]);
-
 
         Appointment::create([
             'client_id' => auth()->id(),
@@ -60,5 +76,17 @@ class AppointmentController extends Controller
             : 'Termin je odbijen.';
 
         return redirect()->route('stylist.dashboard')->with('status', $message);
+    }
+
+    /**
+     * Client cancels their own appointment.
+     */
+    public function cancel(Appointment $appointment): RedirectResponse
+    {
+        $this->authorize('cancel', $appointment);
+
+        $appointment->update(['status' => Appointment::STATUS_CANCELLED]);
+
+        return redirect()->route('client.dashboard')->with('status', 'Termin je otkazan.');
     }
 }
