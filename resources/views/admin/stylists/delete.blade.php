@@ -31,20 +31,22 @@
                                             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
                                             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Frizer</th>
                                             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Akcije</th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
                                         @foreach($stylists as $s)
                                             <tr>
                                                 <td class="px-4 py-3 text-sm text-gray-900">{{ $s->id }}</td>
-                                                <td class="px-4 py-3 text-sm text-gray-900">{{ $s->name }}</td>
+                                                <td class="px-4 py-3 text-sm text-gray-900">{{ $s->name }} {{ $s->lastname }}</td>
                                                 <td class="px-4 py-3 text-sm text-gray-600">{{ $s->email }}</td>
-                                                <form action="{{ route('admin.stylists.destroy', $s->id) }}" method="POST" class="space-y-4">
-                                                @csrf
-                                                <td class="px-4 py-3">
-                                                    <button type="submit" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Obriši</button>
+                                                <td class="px-4 py-3 flex items-center gap-2">
+                                                    <a href="{{ route('admin.stylists.edit', $s->id) }}" class="px-3 py-1.5 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 transition text-sm">Uredi</a>
+                                                    <form action="{{ route('admin.stylists.destroy', $s->id) }}" method="POST" class="inline">
+                                                        @csrf
+                                                        <button type="submit" class="px-3 py-1.5 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">Obriši</button>
+                                                    </form>
                                                 </td>
-                                                </form>
                                             </tr>
                                         @endforeach
                                     </tbody>
