@@ -37,7 +37,7 @@ class DashboardController extends Controller
             ->with(['stylist', 'service'])
             ->latest('appointment_at')
             ->get();
-        $stylists = User::where('role', User::ROLE_STYLIST)->orderBy('name')->get();
+        $stylists = User::where('role', User::ROLE_STYLIST)->with('workHours')->orderBy('name')->get();
         $services = Service::orderBy('name')->get();
 
         return view('dashboard.client', compact('appointments', 'stylists', 'services'));
@@ -58,14 +58,27 @@ class DashboardController extends Controller
     }
 
     /**
-     * Admin dashboard: all appointments + link to create stylist.
+     * Admin dashboard: all appointments, filterable by day/month/year.
      */
     public function adminDashboard(): View
     {
-        $appointments = Appointment::with(['client', 'stylist', 'service'])
-            ->latest('appointment_at')
-            ->get();
+        $query = Appointment::with(['client', 'stylist', 'service'])->latest('appointment_at');
 
-        return view('dashboard.admin', compact('appointments'));
+        $filter = request('filter', 'all');
+        $date = request('date');
+        $month = request('month');
+        $year = request('year_only') ?? request('year_month');
+
+        if ($filter === 'day' && $date) {
+            $query->whereDate('appointment_at', $date);
+        } elseif ($filter === 'month' && $month && $year) {
+            $query->whereMonth('appointment_at', (int) $month)->whereYear('appointment_at', (int) $year);
+        } elseif ($filter === 'year' && $year) {
+            $query->whereYear('appointment_at', (int) $year);
+        }
+
+        $appointments = $query->get();
+
+        return view('dashboard.admin', compact('appointments', 'filter', 'date', 'month', 'year'));
     }
 }
