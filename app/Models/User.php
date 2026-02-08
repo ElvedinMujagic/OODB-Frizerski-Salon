@@ -98,6 +98,12 @@ class User extends Authenticatable
         return $this->hasMany(Appointment::class, 'stylist_id');
     }
 
+    /** Work hours for stylists (one row per stylist). */
+    public function workHours(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(WorkHours::class);
+    }
+
     /** All appointments (for admin) - use Appointment::query() in controller */
     public static function roles(): array
     {
