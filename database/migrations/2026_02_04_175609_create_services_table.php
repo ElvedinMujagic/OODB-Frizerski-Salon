@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price', 8, 2);
-            $table->unsignedInteger('avg_time'); // average duration in minutes
+            $table->unsignedInteger('avg_time');
             $table->timestamps();
         });
     }
