@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Moji termini') }}
-        </h2>
+        <div class="flex flex-wrap items-center gap-3">
+            <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center gap-1">
+                ← {{ __('Home') }}
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Moji termini') }}
+            </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -35,9 +40,10 @@
                                             <span class="inline-flex items-center mt-2 px-2.5 py-0.5 rounded-full text-xs font-medium
                                                 @if($apt->status === 'accepted') bg-green-100 text-green-800
                                                 @elseif($apt->status === 'rejected') bg-red-100 text-red-800
+                                                @elseif($apt->status === 'cancelled') bg-gray-100 text-gray-700
                                                 @else bg-amber-100 text-amber-800
                                                 @endif">
-                                                {{ ucfirst($apt->status) }}
+                                                {{ $apt->status_label }}
                                             </span>
                                         </div>
                                         @if($apt->isPending())
