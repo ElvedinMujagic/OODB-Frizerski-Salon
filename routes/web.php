@@ -6,7 +6,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Admin\StylistController;
 use App\Http\Controllers\Admin\ServiceController;
 
-Route::get('/Početna', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
