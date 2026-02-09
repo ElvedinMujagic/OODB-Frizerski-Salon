@@ -13,10 +13,10 @@
                 <a href="{{ route('admin.services.index') }}" class="px-3 py-2 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-800 transition text-sm">
                     Upravljanje uslugama
                 </a>
-                <a href="{{ route('admin.stylists.create') }}" class="px-3 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
+                <a href="{{ route('admin.stylists.create') }}" class="px-3 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition text-sm">
                     Napravi profil frizera
                 </a>
-                <a href="{{ route('admin.stylists.delete') }}" class="px-3 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
+                <a href="{{ route('admin.stylists.delete') }}" class="px-3 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition text-sm">
                     Obriši profil frizera
                 </a>
             </div>
@@ -37,7 +37,7 @@
                     <form action="{{ route('admin.dashboard') }}" method="GET" class="flex flex-wrap items-end gap-4">
                         <div>
                             <label for="filter" class="block text-sm font-medium text-gray-700 mb-1">Filter</label>
-                            <select name="filter" id="filter" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            <select name="filter" id="filter" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                 <option value="all" {{ ($filter ?? 'all') === 'all' ? 'selected' : '' }}>Svi termini</option>
                                 <option value="day" {{ ($filter ?? '') === 'day' ? 'selected' : '' }}>Po danu</option>
                                 <option value="month" {{ ($filter ?? '') === 'month' ? 'selected' : '' }}>Po mjesecu</option>
@@ -46,12 +46,12 @@
                         </div>
                         <div id="filter-day" class="filter-option" style="{{ ($filter ?? '') === 'day' ? '' : 'display: none;' }}">
                             <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Datum</label>
-                            <input type="date" name="date" id="date" value="{{ $date ?? '' }}" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            <input type="date" name="date" id="date" value="{{ $date ?? '' }}" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                         </div>
                         <div id="filter-month" class="filter-option flex gap-2" style="{{ ($filter ?? '') === 'month' ? '' : 'display: none;' }}">
                             <div>
                                 <label for="month" class="block text-sm font-medium text-gray-700 mb-1">Mjesec</label>
-                                <select name="month" id="month" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                                <select name="month" id="month" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                     @foreach(range(1, 12) as $m)
                                         <option value="{{ $m }}" {{ (int)($month ?? 0) === $m ? 'selected' : '' }}>{{ \Carbon\Carbon::createFromDate(null, $m, 1)->translatedFormat('F') }}</option>
                                     @endforeach
@@ -59,14 +59,14 @@
                             </div>
                             <div>
                                 <label for="year_month" class="block text-sm font-medium text-gray-700 mb-1">Godina</label>
-                                <input type="number" name="year_month" id="year_month" value="{{ $year ?? now()->year }}" min="2020" max="2030" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500 w-24">
+                                <input type="number" name="year_month" id="year_month" value="{{ $year ?? now()->year }}" min="2020" max="2030" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-24">
                             </div>
                         </div>
                         <div id="filter-year" class="filter-option" style="{{ ($filter ?? '') === 'year' ? '' : 'display: none;' }}">
                             <label for="year_only" class="block text-sm font-medium text-gray-700 mb-1">Godina</label>
-                            <input type="number" name="year_only" id="year_only" value="{{ $year ?? now()->year }}" min="2020" max="2030" class="rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500 w-24">
+                            <input type="number" name="year_only" id="year_only" value="{{ $year ?? now()->year }}" min="2020" max="2030" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-24">
                         </div>
-                        <button type="submit" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Prikaži</button>
+                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">Prikaži</button>
                     </form>
                 </div>
             </div>

@@ -18,12 +18,12 @@
                     Bez obzira da li želite šišanje, potpunu promjenu boje ili stil za posebnu priliku, mi ćemo odvojiti vrijeme da razumijemo šta želite i pružimo vam izgled koji volite.</p>
 
                 <ul class="space-y-2 text-gray-700 mb-8">
-                    <li class="flex items-center gap-2"><span class="text-pink-500 font-bold">✓</span> Licencirani, iskusni frizeri</li>
-                    <li class="flex items-center gap-2"><span class="text-pink-500 font-bold">✓</span> Premium proizvodi</li>
-                    <li class="flex items-center gap-2"><span class="text-pink-500 font-bold">✓</span> Opuštena, gostoljubiva atmosfera</li>
+                    <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✓</span> Licencirani, iskusni frizeri</li>
+                    <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✓</span> Premium proizvodi</li>
+                    <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">✓</span> Opuštena, gostoljubiva atmosfera</li>
                 </ul>
 
-                <a href="{{ route('book') }}" class="inline-block px-8 py-3 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">
+                <a href="{{ route('book') }}" class="inline-block px-8 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">
                     Zakažite termin
                 </a>
             </div>

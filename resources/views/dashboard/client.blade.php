@@ -29,7 +29,7 @@
                             @csrf
                             <div>
                                 <label for="stylist_id" class="block text-sm font-medium text-gray-700 mb-1">Stylist</label>
-                                <select name="stylist_id" id="stylist_id" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                                <select name="stylist_id" id="stylist_id" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                     <option value="">Odaberite frizera</option>
                                     @foreach($stylists as $s)
                                         @php
@@ -46,7 +46,7 @@
                             </div>
                             <div>
                                 <label for="service_id" class="block text-sm font-medium text-gray-700 mb-1">Service</label>
-                                <select name="service_id" id="service_id" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                                <select name="service_id" id="service_id" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                     <option value="">Odaberite uslugu</option>
                                     @foreach($services as $sr)
                                         <option value="{{ $sr->id }}" {{ old('service_id') == $sr->id ? 'selected' : '' }}>
@@ -65,19 +65,19 @@
                                 <input required type="datetime-local" name="appointment_at" id="appointment_at" value="{{ old('appointment_at') }}" 
                                     min="{{ now()->format('Y-m-d\TH:i') }}"
                                     max="{{ now()->addDays(60)->format('Y-m-d\TH:i') }}"
-                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                 @error('appointment_at')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
                                 <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Napomena</label>
-                                <textarea name="notes" id="notes" rows="2" class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" placeholder="Napomene">{{ old('notes') }}</textarea>
+                                <textarea name="notes" id="notes" rows="2" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Napomene">{{ old('notes') }}</textarea>
                                 @error('notes')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <button type="submit" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">
                                 Zakazi termin
                             </button>
                         </form>

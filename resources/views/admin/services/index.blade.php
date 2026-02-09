@@ -7,7 +7,7 @@
                     {{ __('Upravljanje uslugama') }}
                 </h2>
             </div>
-            <a href="{{ route('admin.services.create') }}" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">
+            <a href="{{ route('admin.services.create') }}" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition text-sm">
                 Napravi novu uslugu
             </a>
         </div>
@@ -25,7 +25,7 @@
                 <div class="p-6 lg:p-8">
                     @if($services->isEmpty())
                         <p class="text-gray-500 mb-4">Nema usluga. Napravite jednu da biste započeli.</p>
-                        <a href="{{ route('admin.services.create') }}" class="inline-block px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">Napravi novu uslugu</a>
+                        <a href="{{ route('admin.services.create') }}" class="inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">Napravi novu uslugu</a>
                     @else
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
@@ -44,7 +44,7 @@
                                             <td class="px-4 py-3 text-sm text-gray-600">{{ number_format($service->price, 2) }}</td>
                                             <td class="px-4 py-3 text-sm text-gray-600">{{ $service->formatted_avg_time }}</td>
                                             <td class="px-4 py-3 text-right">
-                                                <a href="{{ route('admin.services.edit', $service) }}" class="text-pink-600 hover:text-pink-700 font-medium text-sm">Uredi</a>
+                                                <a href="{{ route('admin.services.edit', $service) }}" class="text-blue-600 hover:text-blue-700 font-medium text-sm">Uredi</a>
                                                 <form action="{{ route('admin.services.destroy', $service) }}" method="POST" class="inline ml-3" onsubmit="return confirm('Obriši ovu uslugu?');">
                                                     @csrf
                                                     @method('DELETE')

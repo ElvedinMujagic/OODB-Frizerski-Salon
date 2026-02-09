@@ -23,27 +23,27 @@
                         @method('PUT')
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Naziv usluge</label>
-                            <input type="text" name="name" id="name" value="{{ old('name', $service->name) }}" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            <input type="text" name="name" id="name" value="{{ old('name', $service->name) }}" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             @error('name')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Cijena</label>
-                            <input type="number" name="price" id="price" value="{{ old('price', $service->price) }}" required min="0" step="0.01" class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            <input type="number" name="price" id="price" value="{{ old('price', $service->price) }}" required min="0" step="0.01" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             @error('price')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
                             <label for="avg_time" class="block text-sm font-medium text-gray-700 mb-1">Prosječno vrijeme (minute)</label>
-                            <input type="number" name="avg_time" id="avg_time" value="{{ old('avg_time', $service->avg_time) }}" required min="1" class="w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500">
+                            <input type="number" name="avg_time" id="avg_time" value="{{ old('avg_time', $service->avg_time) }}" required min="1" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             @error('avg_time')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="flex gap-3 pt-2">
-                            <button type="submit" class="px-4 py-2 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">
                                 Ažuriraj uslugu
                             </button>
                             <a href="{{ route('admin.services.index') }}" class="px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 transition">

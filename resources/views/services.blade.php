@@ -45,7 +45,7 @@
         <!-- Call to action -->
         <div class="mt-16 p-8 bg-gray-50 rounded-xl max-w-3xl mx-auto text-center">
             <p class="text-gray-700 mb-4">Spremni za rezervaciju? Odaberite uslugu, a mi ćemo se pobrinuti za ostalo.</p>
-            <a href="{{ route('book') }}" class="inline-block px-8 py-3 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition">
+            <a href="{{ route('book') }}" class="inline-block px-8 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">
                 Rezervirajte termin
             </a>
         </div>

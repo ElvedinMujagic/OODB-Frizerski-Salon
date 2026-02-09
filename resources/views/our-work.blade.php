@@ -27,7 +27,7 @@
 
         <!-- Call to Action -->
         <p class="text-center mt-12 text-gray-600">
-            <a href="{{ route('contact') }}" class="text-pink-600 font-semibold hover:text-pink-700">Javite se</a> da razgovaramo o vašem sljedećem izgledu.
+            <a href="{{ route('contact') }}" class="text-blue-600 font-semibold hover:text-blue-700">Javite se</a> da razgovaramo o vašem sljedećem izgledu.
         </p>
     </div>
 </section>

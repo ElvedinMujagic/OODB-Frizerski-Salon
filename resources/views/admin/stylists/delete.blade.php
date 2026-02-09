@@ -44,7 +44,7 @@
                                                     <a href="{{ route('admin.stylists.edit', $s->id) }}" class="px-3 py-1.5 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 transition text-sm">Uredi</a>
                                                     <form action="{{ route('admin.stylists.destroy', $s->id) }}" method="POST" class="inline">
                                                         @csrf
-                                                        <button type="submit" class="px-3 py-1.5 bg-pink-500 text-white font-semibold rounded-md hover:bg-pink-600 transition text-sm">Obriši</button>
+                                                        <button type="submit" class="px-3 py-1.5 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition text-sm">Obriši</button>
                                                     </form>
                                                 </td>
                                             </tr>

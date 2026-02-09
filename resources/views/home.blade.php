@@ -15,7 +15,7 @@
             Vrhunsko šišanje, farbanje i stiliziranje od strane iskusnih profesionalaca. Vaš najbolji izgled počinje ovdje.
         </p>
         <div class="flex flex-wrap gap-4">
-            <a href="{{ route('services') }}" class="px-8 py-3 bg-pink-500 rounded-md hover:bg-pink-600 transition font-medium">
+            <a href="{{ route('services') }}" class="px-8 py-3 bg-blue-500 rounded-md hover:bg-blue-600 transition font-medium">
                 Pogledajte usluge
             </a>
             <a href="{{ route('book') }}" class="px-8 py-3 border border-white/40 rounded-md hover:bg-white/10 transition font-medium">
@@ -54,7 +54,7 @@
             </a>
         </div>
         <p class="text-center mt-10">
-            <a href="{{ route('services') }}" class="text-pink-600 font-semibold hover:text-pink-700">Pogledajte sve usluge →</a>
+            <a href="{{ route('services') }}" class="text-blue-600 font-semibold hover:text-blue-700">Pogledajte sve usluge →</a>
         </p>
     </div>
 </section>
@@ -68,7 +68,7 @@
                 <p class="text-gray-600 mb-6 leading-relaxed">
                     Mi smo salon fokusiran na kvalitet, udobnost i vaš lični stil. Naš tim ima dugogodišnje iskustvo i kontinuiranu edukaciju kako biste dobili najnovije tehnike.
                 </p>
-                <a href="{{ route('about') }}" class="text-pink-600 font-semibold hover:text-pink-700">Saznajte više o nama →</a>
+                <a href="{{ route('about') }}" class="text-blue-600 font-semibold hover:text-blue-700">Saznajte više o nama →</a>
             </div>
             <div class="rounded-xl overflow-hidden shadow-xl">
                 <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=800&q=80" alt="Salon interior" class="w-full h-96 object-cover">
@@ -89,17 +89,17 @@
             <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Style 4" class="rounded-lg object-cover h-64 w-full shadow-md">
         </div>
         <p class="text-center mt-10">
-            <a href="{{ route('our-work') }}" class="text-pink-600 font-semibold hover:text-pink-700">Pogledajte više naših radova →</a>
+            <a href="{{ route('our-work') }}" class="text-blue-600 font-semibold hover:text-blue-700">Pogledajte više naših radova →</a>
         </p>
     </div>
 </section>
 
 <!-- CTA -->
-<section class="py-20 md:py-28 bg-pink-600 text-white text-center">
+<section class="py-20 md:py-28 bg-blue-600 text-white text-center">
     <div class="max-w-3xl mx-auto px-4">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Spremni za novi izgled?</h2>
-        <p class="text-lg md:text-xl text-pink-100 mb-10">Zakažite svoj termin već danas i prepustite nama brigu o ostalom.</p>
-        <a href="{{ route('book') }}" class="inline-block px-10 py-4 bg-white text-pink-600 font-semibold rounded-md hover:bg-gray-100 transition shadow-lg">
+        <p class="text-lg md:text-xl text-blue-100 mb-10">Zakažite svoj termin već danas i prepustite nama brigu o ostalom.</p>
+        <a href="{{ route('book') }}" class="inline-block px-10 py-4 bg-white text-blue-600 font-semibold rounded-md hover:bg-gray-100 transition shadow-lg">
             Rezervišite odmah
         </a>
     </div>
