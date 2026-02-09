@@ -8,9 +8,7 @@ use Illuminate\Database\Seeder;
 
 class WorkHoursSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
         $stylists = User::where('role', User::ROLE_STYLIST)->get();

@@ -28,7 +28,6 @@ class Service extends Model
         return $this->hasMany(Appointment::class);
     }
 
-    /** Average duration formatted (e.g. "45 min"). */
     public function getFormattedAvgTimeAttribute(): string
     {
         if ($this->avg_time < 60) {

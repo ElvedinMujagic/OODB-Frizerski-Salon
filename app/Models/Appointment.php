@@ -66,13 +66,11 @@ class Appointment extends Model
         return $this->status === self::STATUS_CANCELLED;
     }
 
-    /** True if the client can cancel (pending or accepted). */
     public function canBeCancelledByClient(): bool
     {
         return in_array($this->status, [self::STATUS_PENDING, self::STATUS_ACCEPTED], true);
     }
 
-    /** Human-readable status labels (Bosnian). */
     public static function statusLabels(): array
     {
         return [

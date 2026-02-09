@@ -8,7 +8,7 @@ use App\Models\User;
 class AppointmentPolicy
 {
     /**
-     * Only the assigned stylist can update (accept/reject) the appointment.
+     * Samo frizeri mogu prihvatiti ili odbiti termin. Ako je njima upućen.
      */
     public function update(User $user, Appointment $appointment): bool
     {
@@ -16,7 +16,7 @@ class AppointmentPolicy
     }
 
     /**
-     * Only the client can cancel their own appointment (if pending or accepted).
+     * Samo klijent može otkazati termin
      */
     public function cancel(User $user, Appointment $appointment): bool
     {

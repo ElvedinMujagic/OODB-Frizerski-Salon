@@ -1,6 +1,6 @@
 @extends('layouts.salon')
 
-@section('title', 'Book Appointment – ' . config('app.name'))
+@section('title', 'Zakažite termin – ' . config('app.name'))
 
 @section('content')
 <section class="py-16 md:py-24">

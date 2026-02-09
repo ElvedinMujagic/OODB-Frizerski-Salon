@@ -1,6 +1,6 @@
 @extends('layouts.salon')
 
-@section('title', 'Home – ' . config('app.name'))
+@section('title', 'Početna – ' . config('app.name'))
 
 @section('content')
 <!-- Hero -->
@@ -9,7 +9,7 @@
     <div class="absolute inset-0 bg-black/50"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
         <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold mb-6 max-w-2xl leading-tight">
-            Kosa koja govori prije vas
+            Dobra kosa govori glasnije od riječi
         </h1>
         <p class="text-lg sm:text-xl text-gray-200 max-w-xl mb-10">
             Vrhunsko šišanje, farbanje i stiliziranje od strane iskusnih profesionalaca. Vaš najbolji izgled počinje ovdje.
@@ -83,7 +83,7 @@
         <h2 class="font-display text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">Naše radove</h2>
         <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16">Neke od izgleda koje smo kreirali za naše klijente.</p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f769b0b8?w=600&q=80" alt="Style 1" class="rounded-lg object-cover h-64 w-full shadow-md">
+            <img src="https://tuzlanski.ba/wp-content/uploads/2015/03/Hairstyle-by-Senad-7.jpg" alt="Style 1" class="rounded-lg object-cover h-64 w-full shadow-md">
             <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Style 2" class="rounded-lg object-cover h-64 w-full shadow-md">
             <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80" alt="Style 3" class="rounded-lg object-cover h-64 w-full shadow-md">
             <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Style 4" class="rounded-lg object-cover h-64 w-full shadow-md">

@@ -1,6 +1,6 @@
 @extends('layouts.salon')
 
-@section('title', 'About – ' . config('app.name'))
+@section('title', 'O nama – ' . config('app.name'))
 
 @section('content')
 <section class="pt-24 md:pt-32 pb-24">

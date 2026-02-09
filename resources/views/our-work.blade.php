@@ -1,6 +1,6 @@
 @extends('layouts.salon')
 
-@section('title', 'Our Work – ' . config('app.name'))
+@section('title', 'Naš rad – ' . config('app.name'))
 
 @section('content')
 <section class="pt-24 md:pt-12 pb-24">
@@ -16,13 +16,13 @@
         </p>
 
         <!-- Gallery Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
             <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Style 1" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
             <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Style 2" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
             <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80" alt="Style 3" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
             <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Style 4" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
             <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Color work" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
-            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Styling" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
+            <img src="https://www.sredime.ba/image/photo/2/b/2be5f9c2e3620eb73c2972d7552b6cb5/6066_lg.jpg" alt="Styling" class="rounded-xl object-cover h-64 md:h-80 w-full shadow-md hover:shadow-lg transition">
         </div>
 
         <!-- Call to Action -->

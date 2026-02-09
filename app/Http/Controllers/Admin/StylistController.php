@@ -14,7 +14,7 @@ use Illuminate\View\View;
 class StylistController extends Controller
 {
     /**
-     * Show form to create a new stylist account.
+     * Prikaz forme za kreiranje novog frizera.
      */
     public function create(): View
     {
@@ -31,7 +31,7 @@ class StylistController extends Controller
     }
 
     /**
-     * Store a new stylist account.
+     * Spremanje novog frizera u bazu podataka nakon validacije unosa.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -82,7 +82,7 @@ class StylistController extends Controller
     }
 
     /**
-     * Show form to edit a stylist.
+     * Prikaz forme za uređivanje postojećeg frizera sa prethodno popunjenim podacima.
      */
     public function edit(int $id): View|RedirectResponse
     {
@@ -91,7 +91,8 @@ class StylistController extends Controller
     }
 
     /**
-     * Update stylist profile (name, email, work hours).
+     * Ažuriranje postojećeg frizera u bazi podataka nakon validacije unosa. 
+     * Lozinka se ažurira samo ako je unesena nova, a radno vrijeme se ažurira ili kreira po potrebi.
      */
     public function update(Request $request, int $id): RedirectResponse
     {

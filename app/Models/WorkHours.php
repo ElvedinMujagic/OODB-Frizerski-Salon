@@ -20,10 +20,7 @@ class WorkHours extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Check if a given datetime is within this work window (time between start and end).
-     * end_time is exclusive (e.g. 16:00 means up to but not including 16:00).
-     */
+
     public function containsTime(\DateTimeInterface $datetime): bool
     {
         $t = \Carbon\Carbon::parse($datetime)->format('H:i');

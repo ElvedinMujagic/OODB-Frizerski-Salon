@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class AppointmentController extends Controller
 {
     /**
-     * Client creates a new appointment.
+     * Spremanje nove rezervacije u bazu podataka nakon provjere unosa.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -59,7 +59,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Stylist accepts or rejects an appointment.
+     * Ažuriranje statusa postojeće rezervacije od strane frizera.
      */
     public function update(Request $request, Appointment $appointment): RedirectResponse
     {
@@ -79,7 +79,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Client cancels their own appointment.
+     * Klijent otkazuje svoj termin.
      */
     public function cancel(Appointment $appointment): RedirectResponse
     {

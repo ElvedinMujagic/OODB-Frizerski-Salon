@@ -11,7 +11,7 @@ use Illuminate\View\View;
 class DashboardController extends Controller
 {
     /**
-     * Redirect to the correct dashboard based on user role.
+     * Prikazuje pravilni dashboard ovisno o tome ko se prijavio
      */
     public function index(): RedirectResponse
     {
@@ -28,7 +28,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * Client dashboard: my appointments (accepted/rejected) + create form.
+     * Client dashboard: moji termini (svi, uključujući i one koji nisu još prihvaćeni), lista frizera i usluga za zakazivanje novih termina
      */
     public function clientDashboard(): View
     {
@@ -44,7 +44,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * Stylist dashboard: my appointments, accept/reject pending.
+     * Stylist dashboard: moji termini (svi, uključujući i one koji nisu još prihvaćeni)
      */
     public function stylistDashboard(): View
     {
@@ -58,7 +58,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * Admin dashboard: all appointments, filterable by day/month/year.
+     * Admin dashboard: svi termini sa filterom po danu, mjesecu, godini
      */
     public function adminDashboard(): View
     {
