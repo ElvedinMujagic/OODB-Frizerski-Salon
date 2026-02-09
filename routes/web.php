@@ -6,27 +6,27 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Admin\StylistController;
 use App\Http\Controllers\Admin\ServiceController;
 
-Route::get('/', function () {
+Route::get('/Početna', function () {
     return view('home');
 })->name('home');
 
-Route::get('/services', function () {
+Route::get('/Usluge', function () {
     return view('services');
 })->name('services');
 
-Route::get('/our-work', function () {
+Route::get('/Naš-rad', function () {
     return view('our-work');
 })->name('our-work');
 
-Route::get('/about', function () {
+Route::get('/O-nama', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contact', function () {
+Route::get('/Kontakt', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/book', function () {
+Route::get('/Zakažite-termin', function () {
     return view('book');
 })->name('book');
 
