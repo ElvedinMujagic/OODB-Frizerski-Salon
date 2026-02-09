@@ -22,49 +22,49 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Marko',
-            'lastname' => 'Frizer',
+            'name' => 'Elvedin',
+            'lastname' => 'Mujagic',
             'email' => 'marko@salon.test',
             'password' => $password,
             'role' => User::ROLE_STYLIST,
         ]);
 
         User::create([
-            'name' => 'Ana',
-            'lastname' => 'Kovač',
-            'email' => 'ana@salon.test',
+            'name' => 'Elvin',
+            'lastname' => 'Pecenkovic',
+            'email' => 'elvin@salon.test',
             'password' => $password,
             'role' => User::ROLE_STYLIST,
         ]);
 
         User::create([
-            'name' => 'Petra',
-            'lastname' => 'Horvat',
-            'email' => 'petra@salon.test',
+            'name' => 'Emir',
+            'lastname' => 'Srebric',
+            'email' => 'emir@salon.test',
             'password' => $password,
             'role' => User::ROLE_STYLIST,
         ]);
 
         User::create([
-            'name' => 'Ivan',
-            'lastname' => 'Klijent',
-            'email' => 'ivan@salon.test',
+            'name' => 'Sarah',
+            'lastname' => 'Kuric',
+            'email' => 'sarah@salon.test',
             'password' => $password,
             'role' => User::ROLE_CLIENT,
         ]);
 
         User::create([
-            'name' => 'Jelena',
+            'name' => 'Suad',
             'lastname' => 'Marić',
-            'email' => 'jelena@salon.test',
+            'email' => 'suad@salon.test',
             'password' => $password,
             'role' => User::ROLE_CLIENT,
         ]);
 
         User::create([
-            'name' => 'Tomislav',
-            'lastname' => 'Novak',
-            'email' => 'tomislav@salon.test',
+            'name' => 'Sajra',
+            'lastname' => 'Alibabic',
+            'email' => 'sajra@salon.test',
             'password' => $password,
             'role' => User::ROLE_CLIENT,
         ]);
