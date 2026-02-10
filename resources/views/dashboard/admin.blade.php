@@ -3,7 +3,7 @@
         <div class="flex flex-wrap items-center justify-between gap-1">
             <div class="flex flex-wrap items-center gap-3">
                 <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center gap-1">
-                    ← {{ __('Home') }}
+                    ← {{ __('Početna') }}
                 </a>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __('Admin – Svi Termini') }}
@@ -100,7 +100,7 @@
                                                     —
                                                 @endif
                                             </td>
-                                            <td class="px-4 py-3 text-sm text-gray-600">{{ $apt->appointment_at->format('M j, Y g:i A') }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-600">{{ $apt->appointment_at->format('M j, Y \@ H:i') }}</td>
                                             <td class="px-4 py-3">
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
                                                     @if($apt->status === 'accepted') bg-green-100 text-green-800

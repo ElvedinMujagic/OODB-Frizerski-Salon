@@ -31,10 +31,9 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
-                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Avg. time</th>
-                                        <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Naziv</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Cijena</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Vrijeme čekanja</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200">

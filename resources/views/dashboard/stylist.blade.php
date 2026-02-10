@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex flex-wrap items-center gap-3">
             <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center gap-1">
-                ← {{ __('Home') }}
+                ← {{ __('Početna') }}
             </a>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Moji termini') }}
@@ -30,9 +30,9 @@
                                     <div class="flex flex-wrap items-start justify-between gap-4">
                                         <div>
                                             <p class="font-medium text-gray-900">{{ $apt->client->name }} {{ $apt->client->lastname }}</p>
-                                            <p class="text-sm text-gray-500">{{ $apt->appointment_at->format('l, M j, Y \a\t g:i A') }}</p>
+                                            <p class="text-sm text-gray-500">{{ $apt->appointment_at->format('M j, Y \@ H:i') }}</p>
                                             @if($apt->service)
-                                                <p class="text-sm text-gray-600 mt-1">{{ $apt->service->name }} — {{ number_format($apt->service->price, 2) }}</p>
+                                                <p class="text-sm text-gray-600 mt-1">{{ $apt->service->name }} — {{ number_format($apt->service->price, 2) }} KM</p>
                                             @endif
                                             @if($apt->notes)
                                                 <p class="text-sm text-gray-600 mt-1">{{ $apt->notes }}</p>

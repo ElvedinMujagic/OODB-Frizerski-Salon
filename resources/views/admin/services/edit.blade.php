@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center gap-2">
-            <a href="{{ route('admin.services.index') }}" class="text-gray-500 hover:text-gray-700 text-sm">← Services</a>
+            <a href="{{ route('admin.services.index') }}" class="text-gray-500 hover:text-gray-700 text-sm">← Usluge</a>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Uredi uslugu') }}
             </h2>
