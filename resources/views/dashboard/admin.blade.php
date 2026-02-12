@@ -91,8 +91,8 @@
                                 <tbody class="divide-y divide-gray-200">
                                     @foreach($appointments as $apt)
                                         <tr>
-                                            <td class="px-4 py-3 text-sm text-gray-900">{{ $apt->client->name }}</td>
-                                            <td class="px-4 py-3 text-sm text-gray-900">{{ $apt->stylist->name }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-900">{{ $apt->client->name }} {{ $apt->client->lastname }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-900">{{ $apt->stylist->name }} {{ $apt->stylist->lastname }}</td>
                                             <td class="px-4 py-3 text-sm text-gray-600">
                                                 @if($apt->service)
                                                     {{ $apt->service->name }} — {{ number_format($apt->service->price, 2) }} KM
